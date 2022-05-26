@@ -3,16 +3,14 @@ import { catsApi } from "./CatsApi";
 
 
 
-export const NewCatForm = (addCat)=>{
+export const AddCat = ({submitHandler})=>{
   const [name, setName] = useState('');
   const isSleeping = false;
   
-  const submitHandler =(e) => {  /* collects form infomation*/
+  /*const submitHandler =(e) => {  /* collects form infomation
     e.preventDefault();
-      addCat(cat.id, e.target.name.value, isSleeping);
-      e.target.reset()
-      
-    } 
+      addCat(name.id, e.target.name.value, isSleeping);
+      e.target.reset()*/
 
   return (
 
@@ -23,11 +21,7 @@ export const NewCatForm = (addCat)=>{
               placeholder="New Cat"
               onChange={(e)=> setName(e.target.value)} /*calls function {}*/
         />
-        <input
-              
-              
-            />
-        <button type = "submit">Add</button>
+        <button type="submit">Add</button>
       </form>
     </>
   )

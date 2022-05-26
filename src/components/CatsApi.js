@@ -27,6 +27,8 @@ class CatsApi {
             console.log('ERROR', e);
         }
     }
+
+
 }
 
  export const catsApi = new CatsApi();

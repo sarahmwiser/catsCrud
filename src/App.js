@@ -2,10 +2,11 @@ import React from "react";
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Card from 'react-bootstrap/Card';
 import Container from 'react-bootstrap/Container';
-import { CatList } from "./components/Catlist";
 import { Component } from "react";
+import AvailableCats from "./components/Avalable";
+import NewCat from "./components/NewCat";
+import Home from "./components/Home";
 import {
   BrowserRouter as Router,
   Route,
@@ -14,7 +15,6 @@ import {
   useRouteMatch,
   renderMatches
 } from 'react-router-dom';
-import { NewCatForm } from "./components/AddCat";
 
 
 
@@ -47,36 +47,8 @@ class App extends Component {
       </Router>
     </Container>
   )
-  
-
-function Home(){
- 
-  return (
-    <Card>
-      <Card.Header><h1>Welcome to the Lazy Cat Sanctary</h1></Card.Header>
-      <Card.Body><p>We would love for you to meet our furry friends and maybe take one home!</p></Card.Body>
-        
-    </Card>
-)}
 
 
-function NewCat(){
- 
-  return (
-    <Card>
-      <Card.Header><h1>Add A New Cat:</h1></Card.Header>
-      <Card.Body><NewCatForm/></Card.Body>
-    </Card>
-)}
-
-function AvailableCats(){
-
-  return (
-    <Card>
-      <Card.Header><h1>List Of Avalable Cats:</h1></Card.Header>
-      <Card.Body><CatList/></Card.Body>
-    </Card>
-)}
 }}
 
 export default App;

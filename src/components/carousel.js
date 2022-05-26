@@ -1,6 +1,6 @@
-import HB from '../components/images/hb.jpeg';
+import HB from '../components/images/HB.jpeg';
 import hb2 from '../components/images/hb2.jpeg';
-import san from '../components/images/san.JPG';
+import san from '../components/images/san.JPG'
 
 export const Carousel = [
 <Carousel fade>

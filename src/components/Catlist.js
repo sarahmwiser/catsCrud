@@ -1,6 +1,8 @@
 import React from "react";
 import { Cat } from "./Cat";
 import { catsApi } from "./CatsApi";
+import { AddCat } from "./AddCat";
+
 
 
 export class CatList extends React.Component {
@@ -23,7 +25,15 @@ export class CatList extends React.Component {
         this.fetchCats();
     };
 
-    render() {
+    /*Cat = ({ cat, addCat }) => {
+
+        const submitHandler = (e) => {
+            e.preventDefault();
+            addCat(cat.id, e.target.name.value);
+            e.target.reset();
+        }*/
+
+    render(){
         return(
             <div className='cat-list'>
                 {this.state.cats.map((cat) =>(
@@ -32,7 +42,9 @@ export class CatList extends React.Component {
                         key = {cat.id}
                         addNewCat = {this.updateCat}
                         />
+                    
                 ))}
+            
             </div>
         )
     }
