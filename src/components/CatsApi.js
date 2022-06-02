@@ -1,4 +1,4 @@
-
+/* this was the start of my mock api code, I ran out of time to make it completely functional but plan to complete it at at later date.
 const Cats_ENDPOINT = 'https://6260d106f429c20deb95d050.mockapi.io/catNames'
 
 class CatsApi {
