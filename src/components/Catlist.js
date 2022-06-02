@@ -1,51 +1,81 @@
-import React from "react";
-import { Cat } from "./Cat";
-import { catsApi } from "./CatsApi";
-import { AddCat } from "./AddCat";
+import { useState, Fragment } from 'react'
+import AddCat from './AddCat'
+import EditCat from './EditCat'
+import Avalable from './Avalable'
+import store from '../store.json'
+import hb2 from '../images/hb2.jpeg'
 
 
+//this has all the functions of catlist 
 
-export class CatList extends React.Component {
-    state = {
-        cats:[]
-    };
+const Catlist = () => {
 
-    componentDidMount() {
-        this.fetchCats();
-    }
 
-    fetchCats = async () => {
-        const cats = await catsApi.get();
-        this.setState({cats});
-        console.log(cats);
-    }; 
+	const initialFormState = { id: null, name: ''}
 
-    updateCat = async (updateCat) => {
-        await catsApi.put(updateCat);
-        this.fetchCats();
-    };
+	// Setting state
+	const [ cats, setCats ] = useState(store)
+	const [ currentCat, setCurrentCat ] = useState(initialFormState)
+	const [ editing, setEditing ] = useState(false)
 
-    /*Cat = ({ cat, addCat }) => {
+	// CRUD operations
+	const addCat = cat => {
+		cat.id = cats.length + 1
+		setCats([ ...cats, cat ])
+	}
 
-        const submitHandler = (e) => {
-            e.preventDefault();
-            addCat(cat.id, e.target.name.value);
-            e.target.reset();
-        }*/
+	const deleteCat = id => {
+		setEditing(false)
 
-    render(){
-        return(
-            <div className='cat-list'>
-                {this.state.cats.map((cat) =>(
-                    <Cat
-                        cat = {cat}
-                        key = {cat.id}
-                        addNewCat = {this.updateCat}
-                        />
-                    
-                ))}
-            
-            </div>
-        )
-    }
+		setCats(cats.filter(cat => cat.id !== id))
+	}
+
+	const updateCat = (id, updatedCat) => {
+		setEditing(false)
+
+		setCats(cats.map(cat => (cat.id === id ? updatedCat : cat)))
+	}
+
+	const editRow = cat => {
+		setEditing(true)
+
+		setCurrentCat({ id: cat.id, name: cat.name})
+	}
+
+  return (
+    <div className="container">
+        <h1>Avalable Cats:</h1>
+    <div className="row">
+        
+        <div className='col'>
+            <h3>View Cats</h3>
+
+            <Avalable cats={cats} editRow={editRow} deleteCat={deleteCat} />
+        </div>
+
+        <div className='col'>
+            {editing ? (
+                <Fragment>
+                    <h3>Edit Cat</h3>
+                    <EditCat
+                        editing={editing}
+                        setEditing={setEditing}
+                        currentCat={currentCat}
+                        updateCat={updateCat}
+                    />
+                </Fragment>
+            ) : (
+                <Fragment>
+                    <h3>Add Cat</h3>
+                    <AddCat addCat={addCat} />
+                </Fragment>
+            )}
+        </div>
+            <img src={hb2}/>
+
+    </div>
+</div>
+  )
 }
+
+export default Catlist;

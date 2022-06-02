@@ -3,45 +3,55 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 import ButtonGroup from "react-bootstrap/ButtonGroup";
 import Container from 'react-bootstrap/Container';
-import { Component } from "react";
-import AvailableCats from "./components/Avalable";
-import NewCat from "./components/NewCat";
+import { useState } from "react";
 import Home from "./components/Home";
 import {
   BrowserRouter as Router,
   Route,
   Routes,
   Link,
-  useRouteMatch,
-  renderMatches
 } from 'react-router-dom';
+import Catlist from "./components/Catlist";
+import store from "./store.json"
+import LoginForm from "./components/LoginForm";
 
 
 
   
-  
-class App extends Component {
-  render(){
+function App() {
+    const [cats, setCats] = useState(store);
+    
+    const featuredCats = cats.filter(cat => cat.featured === true);
+   
    
   return(
+
     <Container>
       <Router>
         <div>
           <ButtonGroup>
+
             <Button variant="outline-secondary">
               <Link to="/">Home</Link>
             </Button>
+            
             <Button variant="outline-secondary">
-              <Link to="/addCat">Add Cat</Link>
+              <Link to="/avalable">Adoptable Cats</Link>
             </Button>
+
             <Button variant="outline-secondary">
-              <Link to="/about">Adoptable Cats</Link>
+              <Link to="/login">Login</Link>
             </Button>
+
           </ButtonGroup>
           <Routes>
+
             <Route index element={<Home/>} />
-            <Route path='addCat' element={<NewCat/>}/>  
-            <Route path='about' element={<AvailableCats/>}/>
+            
+            <Route path='avalable' element={<Catlist/>}/>
+
+            <Route path='login' element={<LoginForm/>}/>  
+
           </Routes>
         </div>
       </Router>
@@ -49,6 +59,5 @@ class App extends Component {
   )
 
 
-}}
-
+}
 export default App;

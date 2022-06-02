@@ -1,28 +1,37 @@
-import React, {useState} from "react";
-import { catsApi } from "./CatsApi";
+import React, { useState } from 'react'
 
+/*This is the form to add a cat to catlist*/
 
+const AddCat = (props) => {
+  const initialFormState = { id: null, name: ''}
+  const [cat, setCat] = useState(initialFormState)
 
-export const AddCat = ({submitHandler})=>{
-  const [name, setName] = useState('');
-  const isSleeping = false;
-  
-  /*const submitHandler =(e) => {  /* collects form infomation
-    e.preventDefault();
-      addCat(name.id, e.target.name.value, isSleeping);
-      e.target.reset()*/
+  const handleInputChange = (event) => {
+    const { name, value } = event.target
+
+    setCat({ ...cat, [name]: value })
+  }
 
   return (
+    <form
+      onSubmit={(event) => {
+        event.preventDefault()
+        if (!cat.name) return
 
-    <>
-      <form onSubmit={submitHandler}>
-        <input
-              name="name"
-              placeholder="New Cat"
-              onChange={(e)=> setName(e.target.value)} /*calls function {}*/
-        />
-        <button type="submit">Add</button>
-      </form>
-    </>
+        props.addCat(cat)
+        setCat(initialFormState)
+      }}
+    >
+      <label>Name</label>
+      <input
+        type="text"
+        name="name"
+        value={cat.name}
+        onChange={handleInputChange}
+      />
+      <button>Add New Cat</button>
+    </form>
   )
 }
+
+export default AddCat

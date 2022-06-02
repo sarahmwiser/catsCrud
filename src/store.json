@@ -1,0 +1,41 @@
+
+[
+    {
+        "id": 1,
+        "name": "Butters",
+        "isSleeping": false,
+        "image": "./src/images/HB.jpeg",
+        "featured": true
+    },
+    {
+        "id": 2,
+        "name": "Trevor",
+        "isSleeping": true,
+        "image": "./src/images/hb2.jpeg",
+        "featured": false
+    },
+    {
+        "id": 3,
+        "name": "Sanford",
+        "isSleeping": false,
+        "image": "./src/images/san.JPG",
+        "featured": true
+    },
+    {
+        "id": 4,
+        "name": "Angel",
+        "isSleeping": true,
+        "image": "./images/hb2.jpeg",
+        "featured": false
+    },
+    {
+        "id": 5,
+        "name": "Harold",
+        "isSleeping": true,
+        "image": "./src/images/HB.jpeg",
+        "featured": true
+    }
+
+
+
+]

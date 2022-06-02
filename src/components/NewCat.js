@@ -1,5 +1,5 @@
 import Card from 'react-bootstrap/Card';
-import { AddCat } from './AddCat';
+import AddCat from './AddCat';
 
 
 function NewCat(){

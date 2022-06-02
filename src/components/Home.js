@@ -1,9 +1,9 @@
-import Card from 'react-bootstrap/Card';
 /*import { Carousel } from './carousel';*/
+import HB from '../images/HB.jpeg'
 
 
 
-function Home(){
+function Home(props){
 
     /*Home = async () =>{
         try {
@@ -14,12 +14,18 @@ function Home(){
     }*/
  
     return (
-      <Card>
-        <Card.Header><h1>Welcome to the Lazy Cat Sanctary</h1></Card.Header>
-        <Card.Body><p>We would love for you to meet our furry friends and maybe take one home!</p></Card.Body>
-          {/* wanted to add carousel here but something is wrong with my photos */ }
-           
-      </Card>
+       <div className='container'>
+            <h1>Welcome to the Lazy Cat Sanctary!</h1>
+                <div className='row'>
+                    <p>This is our cat sanctary database. Please use this site to update the available cats at Lazy Cat.
+                        Our goal is to give every cat a loving forever home. 
+
+
+
+                    </p>
+                        <img src={HB}/>
+               </div>
+        </div> 
   )}
 
 export default Home;

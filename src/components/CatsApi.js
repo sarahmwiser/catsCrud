@@ -1,4 +1,3 @@
-import { AddCat } from "./AddCat";
 
 const Cats_ENDPOINT = 'https://6260d106f429c20deb95d050.mockapi.io/catNames'
 
@@ -27,8 +26,4 @@ class CatsApi {
             console.log('ERROR', e);
         }
     }
-
-
-}
-
- export const catsApi = new CatsApi();
+} export const catsApi = new CatsApi();

@@ -1,6 +1,6 @@
-import HB from '../components/images/HB.jpeg';
-import hb2 from '../components/images/hb2.jpeg';
-import san from '../components/images/san.JPG'
+import HB from '../images/HB.jpeg'
+import hb2 from '../images/hb2.jpeg'
+import san from '../images/san.JPG'
 
 export const Carousel = [
 <Carousel fade>
@@ -8,7 +8,7 @@ export const Carousel = [
     <img
       className="d-block w-100"
       src= {HB}
-      alt="First slide"
+      alt="Second slide"
     />
     <Carousel.Caption>
     </Carousel.Caption>
